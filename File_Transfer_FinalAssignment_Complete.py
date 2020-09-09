@@ -33,22 +33,22 @@ class ParentWindow(Frame):              #create class window
         
     def browseFiles(self):
         sourcedir = filedialog.askdirectory()
-        self.txt_browse1.delete(0,END)
-        self.txt_browse1.insert(0, sourcedir)
+        self.txt_browse1.delete(0,END)                          #this deletes everything in the Entry field from start to finish(0 to End)
+        self.txt_browse1.insert(0, sourcedir)                   # this inserts the file that the person picks into the entry field
 
                 	
                 
     def browseMainFile(self):
         destinationdir = filedialog.askdirectory()
-        self.txt_browse2.delete(0,END)
-        self.txt_browse2.insert(0, destinationdir)
+        self.txt_browse2.delete(0,END)                          #this deletes everything in the Entry field from start to finish(0 to End)
+        self.txt_browse2.insert(0, destinationdir)              # this inserts the file that the person picks into the entry field
                 
 
     def checkfiles(self):
-        sourcedir = self.txt_browse1.get()         # is the selected directory
-        destinationdir = self.txt_browse2.get()
-        listfiles = os.listdir(sourcedir)      #list of files inside source
-        for i in listfiles:                                 #Variable "i" is an element of listfile (elements in listfile are filenames inside the directory that was listed
+        sourcedir = self.txt_browse1.get()              # is the selected directory
+        destinationdir = self.txt_browse2.get()       #is the destination directory
+        listfiles = os.listdir(sourcedir)                    #list of files inside source
+        for i in listfiles:                                         #Variable "i" is an element of listfile (elements in listfile are filenames inside the directory that was listed
             a_path = os.path.join(sourcedir, i)
             time = os.path.getmtime(a_path)
             last_hours = datetime.datetime.now() - datetime.timedelta(hours = 24)
